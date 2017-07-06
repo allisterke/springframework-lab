@@ -1,5 +1,6 @@
 package com.ally.web;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -25,8 +26,8 @@ public class App {
 @Configuration
 class AppConfig {
 
-    @Bean
-    public DataSource dataSource() {
+//    @Bean
+    public DataSource dataSource0() {
         return new EmbeddedDatabaseBuilder()
                 .generateUniqueName(true)
                 .setType(EmbeddedDatabaseType.H2)
@@ -34,6 +35,16 @@ class AppConfig {
                 .ignoreFailedDrops(true)
                 .continueOnError(false)
                 .build();
+    }
+
+    @Bean
+    public DataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUsername("ally");
+        dataSource.setPassword("110110");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/leetcode");
+        return dataSource;
     }
 
     @Bean
