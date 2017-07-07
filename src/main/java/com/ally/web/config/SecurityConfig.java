@@ -5,6 +5,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.sql.DataSource;
 
 /**
  * Created by ally on 7/7/17.
@@ -27,8 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder authBuilder) throws Exception {
-        authBuilder.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+    public void configureGlobal(AuthenticationManagerBuilder authBuilder, DataSource dataSource) throws Exception {
+        authBuilder
+                .jdbcAuthentication()
+                .dataSource(dataSource)
+                .passwordEncoder(new BCryptPasswordEncoder())
+                .rolePrefix("ROLE_")
+        ;
     }
 }
