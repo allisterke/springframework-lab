@@ -1,2 +1,2 @@
-insert into users values('Jack', 'Alibaba');
-insert into users values('Pony', 'Tencent');
+insert into companies values('Alibaba', 'Jack');
+insert into companies values('Tencent', 'Pony');

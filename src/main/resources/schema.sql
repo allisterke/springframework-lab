@@ -1,5 +1,6 @@
-drop table if exists users;
-create table users (
-    name varchar(20),
-    company varchar(20)
+drop table if exists companies;
+
+create table companies (
+    name varchar(20) primary key ,
+    leader varchar(20) not null
 );
