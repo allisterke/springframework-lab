@@ -1,8 +1,8 @@
-    .gradle/
-    .idea/
-    build/
-    cookie
-    gradle/
-    gradlew
-    gradlew.bat
+.gradle/*
+.idea/*
+build/*
+cookie
+gradle/*
+gradlew
+gradlew.bat
 
