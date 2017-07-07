@@ -23,7 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/")
                     .successForwardUrl("/home")
-                    .and()
         ;
     }
 
