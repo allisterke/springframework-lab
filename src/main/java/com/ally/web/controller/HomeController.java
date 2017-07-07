@@ -12,7 +12,7 @@ import java.util.Map;
 @RestController
 public class HomeController {
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     Map<String, String> home() {
         Map<String, String> map = new HashMap<>();
         map.put("greeting", "hello, world");
