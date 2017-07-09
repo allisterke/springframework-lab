@@ -14,6 +14,6 @@ public interface CompanyMapper {
     @Select("select * from companies")
     List<Company> getAllCompanies();
 
-    @Select("select * from companies order by rand() limit 1")
-    Company getOneCompany();
+    @Select("select * from companies where name = #{name}")
+    Company getCompany(String name);
 }

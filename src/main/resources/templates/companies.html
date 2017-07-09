@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Welcome Here</title>
+    </head>
+    <body>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Leader</th>
+        </tr>
+        <tr th:each="company : ${companies}">
+            <td>
+                <a th:text="${company.name}" th:href="@{/company/{name}(name=${company.name})}">Company Name</a>
+            </td>
+            <td th:text="${company.leader}">Company Leader</td>
+        </tr>
+    </table>
+    </body>
+</html>

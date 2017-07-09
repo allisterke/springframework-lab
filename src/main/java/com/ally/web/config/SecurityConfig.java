@@ -19,13 +19,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/company/**").hasRole("USER")
+                    .antMatchers("/index.html").permitAll()
+                    .antMatchers("/**").hasRole("USER")
                     .and()
                 .csrf()
                     .disable()
                 .formLogin()
-                    .loginPage("/")
-                    .successForwardUrl("/home")
+                    .loginPage("/index.html")
+                    .successForwardUrl("/login")
         ;
     }
 
