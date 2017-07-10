@@ -10,10 +10,11 @@
         </tr>
         <tr th:each="company : ${companies}">
             <td>
-                <a th:text="${company.name}" th:href="@{/company/{name}(name=${company.name})}">Company Name</a>
+                <a th:text="${company.name}" th:href="@{/v/company/{name}(name=${company.name})}">Company Name</a>
             </td>
             <td th:text="${company.leader}">Company Leader</td>
         </tr>
     </table>
+    <div><a href="/">Home</a></div>
     </body>
 </html>
