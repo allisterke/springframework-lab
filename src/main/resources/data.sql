@@ -1,13 +1,13 @@
 insert into companies values('Alibaba', 'Jack');
 insert into companies values('Tencent', 'Pony');
 
-# ----
+----
 
 insert into users values ('admin', '$2a$10$8P9wF0eayTfG8efVtmyXze9Fs8GA2TpCHK3b1lvUHp4hqi9o4n.L.', true);
 insert into authorities values ('admin', 'ADMIN');
 insert into authorities values ('admin', 'USER');
 
-# ----
+----
 
 insert into store(latitude, longitude, location) values
   (31.247853, 121.456753, "Shanghai Huatie Lvke Service Co., Ltd. Zonghe Office Building"),
@@ -27,5 +27,8 @@ insert into material(name, unit) values
   ("Caramel Sauce","ml"),
   ("Chocolate Cream","ml");
 
-insert into material_remain(storeId, materialId, amount) values
-  (1, 2, 5) on duplicate key update amount = amount + 5;
+insert into material_settings
+  select s.id storeId, m.id materialId, 4, 2, 10 from store s join material m;
+
+insert into material_remain
+  select s.id storeId, m.id materialId, 0 from store s join material m;

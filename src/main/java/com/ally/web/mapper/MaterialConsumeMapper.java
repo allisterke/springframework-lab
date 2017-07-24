@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
  */
 @Mapper
 public interface MaterialConsumeMapper {
-    @Insert("insert into material_scanned values(#{id}, #{ts}, #{storeId}, #{materialId}, #{amount}")
+    @Insert("insert into material_scanned values(#{id}, #{ts}, #{storeId}, #{materialId}, #{amount})")
     public void consume(MaterialConsumeRecord record);
 
     @Update("update material_remain set amount = amount - #{amount} where storeId = #{storeId} and materialId = #{materialId}")

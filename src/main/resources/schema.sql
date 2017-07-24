@@ -5,7 +5,7 @@ create table companies (
     leader varchar(20) not null
 );
 
-# ----
+----
 
 drop table if exists authorities;
 drop table if exists users;
@@ -23,9 +23,15 @@ create table authorities (
 );
 create unique index ix_auth_username on authorities (username,authority);
 
-# ----
+----
 
+drop table if exists material_settings;
+drop table if exists material_remain;
+drop table if exists material_supplied;
+drop table if exists material_scanned;
 drop table if exists store;
+drop table if exists material;
+
 create table store (
   id          integer primary key auto_increment,
   location    varchar(200) not null,
@@ -33,14 +39,12 @@ create table store (
   longitude   double not null
 );
 
-drop table if exists material;
 create table material (
   id          integer primary key auto_increment,
   name        varchar(100),
   unit        varchar(10)
 );
 
-drop table if exists material_scanned;
 create table material_scanned (
   id          char(36) primary key,
   ts          datetime,
@@ -49,7 +53,6 @@ create table material_scanned (
   amount      double
 );
 
-drop table if exists material_supplied;
 create table material_supplied (
   id          integer primary key auto_increment,
   ts          datetime,
@@ -58,7 +61,6 @@ create table material_supplied (
   amount      double
 );
 
-drop table if exists material_remain;
 create table material_remain (
   storeId     integer references store(id),
   materialId  integer references material(id),
@@ -66,7 +68,6 @@ create table material_remain (
   primary key (storeId, materialId)
 );
 
-drop table if exists material_settings;
 create table material_settings (
   storeId     integer references store(id),
   materialId  integer references material(id),

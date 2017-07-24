@@ -4,17 +4,17 @@ package com.ally.web.model;
  * Created by ally on 7/24/17.
  */
 public class Store {
-    int storeId;
+    int id;
     String location;
     double latitude;
     double longitude;
 
-    public int getStoreId() {
-        return storeId;
+    public int getId() {
+        return id;
     }
 
-    public void setStoreId(int storeId) {
-        this.storeId = storeId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLocation() {

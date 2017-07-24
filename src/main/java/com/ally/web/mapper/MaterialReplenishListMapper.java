@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Mapper
 public interface MaterialReplenishListMapper {
-    @Select("select r.storeId storeId, r.materialId materialId, s.amount - r.amount amount from material_remain r join material_settings s on r.storeId = s.storeId and r.materialId = s.materialId where r.amount < s.warn")
+    @Select("select r.storeId storeId, r.materialId materialId, s.fill - r.amount amount from material_remain r join material_settings s on r.storeId = s.storeId and r.materialId = s.materialId where r.amount < s.warn")
     public List<MaterialReplenishRecord> getMaterialReplenishmentList();
 }
