@@ -24,17 +24,14 @@ public class MaterialSettingsController {
     }
 
     @GetMapping("/update-settings")
-    public String updateSetting(@RequestParam("storeId") int storeId,
+    public String updateSetting(
                                 @RequestParam("materialId") int materialId,
                                 @RequestParam("warn") double warnAmount,
-                                @RequestParam("must") double mustAmount,
                                 @RequestParam("fill") double fillAmount) {
 
         MaterialSettings settings = new MaterialSettings();
-        settings.setStoreId(storeId);
         settings.setMaterialId(materialId);
         settings.setWarn(warnAmount);
-        settings.setMust(mustAmount);
         settings.setFill(fillAmount);
 
         settingsMapper.updateSettings(settings);

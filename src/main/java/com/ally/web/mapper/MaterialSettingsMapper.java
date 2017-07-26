@@ -15,6 +15,6 @@ public interface MaterialSettingsMapper {
     @Select("select * from material_settings")
     public List<MaterialSettings> getSettings();
 
-    @Update("update material_settings set warn = #{warn}, must = #{must}, fill = #{fill} where storeId = #{storeId} and materialId = #{materialId}")
+    @Update("update material_settings set warn = #{warn}, fill = #{fill} where materialId = #{materialId}")
     public void updateSettings(MaterialSettings settings);
 }

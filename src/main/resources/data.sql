@@ -9,10 +9,10 @@ insert into authorities values ('admin', 'USER');
 
 ----
 
-insert into store(latitude, longitude, location) values
-  (31.247853, 121.456753, "Shanghai Huatie Lvke Service Co., Ltd. Zonghe Office Building"),
-  (31.224533, 121.450420, "Jing'an Kerry Centre Office Building Erzuo"),
-  (31.220670, 121.457891, "Jin Jiang Dickson Center");
+insert into store(name, latitude, longitude, location) values
+  ("Store 1", 31.247853, 121.456753, "Shanghai Huatie Lvke Service Co., Ltd. Zonghe Office Building"),
+  ("Store 2", 31.224533, 121.450420, "Jing'an Kerry Centre Office Building Erzuo"),
+  ("Store 3", 31.220670, 121.457891, "Jin Jiang Dickson Center");
 
 insert into material(name, unit) values
   ("Coco","g"),
@@ -28,7 +28,8 @@ insert into material(name, unit) values
   ("Chocolate Cream","ml");
 
 insert into material_settings
-  select s.id storeId, m.id materialId, 4, 2, 10 from store s join material m;
+  select m.id materialId, 1000*(round(rand()) % 5 + 2), 1000*(round(rand()) % 10 + 5) from material m;
 
 insert into material_remain
-  select s.id storeId, m.id materialId, 0 from store s join material m;
+  select s.id storeId, ms.materialId materialId, round(rand() * ms.fill) amount
+  from material_settings ms join store s;

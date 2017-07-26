@@ -34,6 +34,7 @@ drop table if exists material;
 
 create table store (
   id          integer primary key auto_increment,
+  name        varchar(200) not null,
   location    varchar(200) not null,
   latitude    double not null,
   longitude   double not null
@@ -69,9 +70,7 @@ create table material_remain (
 );
 
 create table material_settings (
-  storeId     integer references store(id),
   materialId  integer references material(id),
   warn        double,
-  must        double,
   fill        double
 );
