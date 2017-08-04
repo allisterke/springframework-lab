@@ -35,7 +35,7 @@ class AppConfig {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUsername("ally");
         dataSource.setPassword("110110");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/leetcode");
+        dataSource.setUrl("jdbc:mysql://10.214.224.227:3306/leetcode");
         return dataSource;
     }
 
