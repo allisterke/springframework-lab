@@ -18,8 +18,8 @@ import javax.sql.DataSource;
 @Configuration
 class AppConfig {
 
-//    @Bean
-    public DataSource dataSource0() {
+    @Bean
+    public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .generateUniqueName(true)
                 .setType(EmbeddedDatabaseType.H2)
@@ -29,15 +29,15 @@ class AppConfig {
                 .build();
     }
 
-    @Bean
-    public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUsername("ally");
-        dataSource.setPassword("110110");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/leetcode");
-        return dataSource;
-    }
+//    @Bean
+//    public DataSource dataSource() {
+//        BasicDataSource dataSource = new BasicDataSource();
+//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUsername("ally");
+//        dataSource.setPassword("110110");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/leetcode");
+//        return dataSource;
+//    }
 
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {
